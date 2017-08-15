@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+- '0.12'
+git:
+  depth: 10
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm install -qg bower gulp-cli
+- npm install -q
+- bower install --force
+- bower install --force
+script: gulp
+deploy:
+  provider: npm
+  email: adrien.crivelli@gmail.com
+  api_key:
+    secure: BP9aUP2k2myrj1jxmsDljz1KqzENUyadQdwVkv/vgZyj8ZjrWEv9rUHqq9ovbyYvSO65aF6luK9y0DQIccVuDWmkY1CChJBCWtiT3cDLS8bEVUz96Fr+wVlhzGvH6n2gE5kqiI2lE9R7/KrmwpR9NPqifl3LFZlQuGVd+L//opAmx0RfXe/VoslhzfNeyF0Kc7+S3+7LIqbTtDYVgKplTLhsegICsV3C44AVCAb+2ChcHBAJQR5N+i0wzZWZ1dsxmVA8kk92mQvx6EmHjLR+WeLZwv7TgjHB/BkF/XWlAUCQN8RY55gCDIMJ99VKNMfJ1Auxf/qkLVNWRFbR0fen7vpaYu+vHCfyMaZhyyx/FtnN1hAzajjrNfRrwMdGC0fzb1CqkTbQ0GBDUIQOwqNO6/D+BFVhOQIEhu7OAMVrynFTWYerHRbNutO+8of/rj+qhPdcct5uupPl7apO0KamKU3aDAs3TzYWJLAFeDYQ3NuT+7HNrz/qfC+D2AlcQFaXjnStJAsjbJNtk6BJNcBVCZjtmWBV9GpUq3PnI3fzShh3rR1xLyFEECiCxDbXDEUFzuYcPWXgvygxdMy5lBd4tb86/gPMOyoMUkykMfgQCHih1CTqGpwK5YaV2j+5u1ovay1/T2RlIP32hFUK8lQD/jI5isnAh238SW/Kt4zdorQ=
+  on:
+    tags: true
+    repo: angular-ui/ui-indeterminate
